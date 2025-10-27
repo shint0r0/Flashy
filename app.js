@@ -366,7 +366,7 @@ function currentCard(){
 }
 
 /* Normalize + fuzzy compare */
-function normalize(s){ return (s||'').toLowerCase().trim().replace(/[^\p{L}\p{N}\s]+/gu,'').replace(/\s+/g,' '); }
+function normalize(s){ return (s||'').toLowerCase().trim(); }
 function levenshtein(a,b){
   const m=a.length, n=b.length; if(!m) return n; if(!n) return m;
   const dp=Array.from({length:m+1},(_,i)=>[i]);
@@ -714,4 +714,5 @@ function markThemeActive() {
 }
 
 /* PWA */
+
 function registerSW(){ if('serviceWorker' in navigator){ navigator.serviceWorker.register('./sw.js').catch(()=>{}); } }
